@@ -4,6 +4,7 @@ import InternetPlans from "./components/InternetPlans";
 import AvailabilityChecker from "./components/AvailabilityChecker";
 import HowItWorks from "./components/HowItWorks";
 import Footer from "./components/Footer";
+import ShapeGrid from "./components/ShapeGrid";
 import Loader from "./components/Loader";
 import AdvantageCard from "./components/AdvantageCard";
 import ServiceCard from "./components/ServiceCard";
@@ -108,13 +109,27 @@ export default function App() {
             {/* 1. HERO SECTION */}
             <section id="hero" className="py-24 md:py-36 relative overflow-hidden bg-[#0A2463] text-white border-b border-blue-900/40 shadow-inner">
               
-              {/* Subtle Tech Grid overlay and ambient glowing nodes */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+              {/* Animated ShapeGrid background */}
+              <div className="absolute inset-0">
+                <ShapeGrid
+                  shape="square"
+                  direction="diagonal"
+                  lineColor="#2a2734"
+                  hoverColor="#ffffff"
+                  hoverFillColor="#ffffff"
+                  fillOpacity={0.15}
+                  cellSize={40}
+                  speed={0.5}
+                  tiltX={0}
+                  tiltY={0}
+                  rainbow={false}
+                />
+              </div>
               
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                {/* Left Column: Headline and Search */}
-                <div className="space-y-8 lg:col-span-12">
+                {/* Centered hero content */}
+                <div className="space-y-8 lg:col-span-12 text-center">
                   <div className="space-y-4">
                     <h1 className="font-display text-5xl font-extrabold tracking-tight text-white sm:text-7xl leading-tight">
                       Stay Connected.<br />
@@ -122,13 +137,13 @@ export default function App() {
                         Pay Less.
                       </span>
                     </h1>
-                    <p className="text-lg md:text-xl text-red-100/80 leading-relaxed max-w-2xl font-light">
+                    <p className="text-lg md:text-xl text-red-100/80 leading-relaxed max-w-2xl mx-auto font-light">
                       KWS International compares Internet, TV, Phone and Business connectivity from leading providers, so your home or office gets the right speed at the right price, with no guesswork.
                     </p>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <a
                       href="tel:+19293146523"
                       data-cursor="call"
@@ -157,7 +172,7 @@ export default function App() {
                   </div>
 
                   {/* Trust Metric line */}
-                  <div className="flex items-center gap-6 pt-4 border-t border-white/10 max-w-xl">
+                  <div className="flex items-center justify-center gap-6 pt-4 border-t border-white/10 max-w-xl mx-auto">
                     <div>
                       <span className="font-number text-2xl font-extrabold text-white block">
                         9,800+
