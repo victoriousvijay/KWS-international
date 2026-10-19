@@ -107,7 +107,7 @@ export default function App() {
             transition={{ duration: 0.3 }}
           >
             {/* 1. HERO SECTION */}
-            <section id="hero" className="py-24 md:py-36 relative overflow-hidden bg-[#0A2463] text-white border-b border-blue-900/40 shadow-inner">
+            <section id="hero" className="py-24 md:py-32 lg:py-40 relative overflow-hidden bg-[#0A2463] text-white border-b border-blue-900/40 shadow-inner">
               
               {/* Animated ShapeGrid background */}
               <div className="absolute inset-0">
@@ -126,82 +126,68 @@ export default function App() {
                 />
               </div>
               
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                {/* Centered hero content */}
-                <div className="space-y-8 lg:col-span-12 text-center">
-                  <div className="space-y-4">
-                    <h1 className="font-display text-5xl font-extrabold tracking-tight text-white sm:text-7xl leading-tight">
-                      Stay Connected.<br />
-                      <span className="text-yellow-400">
-                        Pay Less.
-                      </span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-red-100/80 leading-relaxed max-w-2xl mx-auto font-light">
-                      KWS International compares Internet, TV, Phone and Business connectivity from leading providers, so your home or office gets the right speed at the right price, with no guesswork.
-                    </p>
-                  </div>
+              <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
 
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <a
-                      href="tel:+19293146523"
-                      data-cursor="call"
-                      className="flex items-center justify-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-8 py-4 font-bold text-emerald-400 hover:bg-emerald-500/20 transition-all text-sm hover:scale-[1.02] active:scale-95 duration-200"
-                    >
-                      <Phone className="h-4 w-4 animate-bounce" />
-                      <span>Call Now</span>
-                    </a>
+                {/* Service line */}
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+                  Internet &nbsp;·&nbsp; TV &nbsp;·&nbsp; Phone &nbsp;·&nbsp; Business
+                </p>
 
-                    <button
-                      onClick={() => handlePageChange("checker")}
-                      data-cursor="verify"
-                      className="flex items-center justify-center gap-2 rounded-2xl bg-primary px-8 py-4 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/95 transition-all text-sm cursor-pointer hover:scale-[1.02] active:scale-95 duration-200"
-                    >
-                      <span>Check Availability</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
+                {/* Headline */}
+                <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                  The Right Connection for{" "}
+                  <span className="text-yellow-400">Your Home &amp; Business</span>
+                </h1>
 
-                    <button
-                      onClick={() => handlePageChange("plans")}
-                      data-cursor="explore"
-                      className="flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white hover:bg-white/10 hover:border-white/40 transition-all text-sm cursor-pointer hover:scale-[1.02] active:scale-95 duration-200"
-                    >
-                      <span>Compare Plans</span>
-                    </button>
-                  </div>
+                {/* Supporting copy */}
+                <p className="mt-6 mx-auto max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-blue-100/80">
+                  KWS International compares plans from leading providers in your area and helps you choose the best fit, with free expert advice, clear pricing and fast installation.
+                </p>
 
-                  {/* Trust Metric line */}
-                  <div className="flex items-center justify-center gap-6 pt-4 border-t border-white/10 max-w-xl mx-auto">
-                    <div>
-                      <span className="font-number text-2xl font-extrabold text-white block">
-                        9,800+
-                      </span>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-red-200/60">
-                        Customers Connected
-                      </span>
-                    </div>
-                    <div className="h-8 w-px bg-white/10" />
-                    <div>
-                      <span className="font-number text-2xl font-extrabold text-white block">
-                        24 Hr
-                      </span>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-red-200/60">
-                        Avg. Setup Time
-                      </span>
-                    </div>
-                    <div className="h-8 w-px bg-white/10" />
-                    <div>
-                      <span className="font-number text-2xl font-extrabold text-white block">
-                        4.9 / 5
-                      </span>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-red-200/60">
-                        Customer Rating
-                      </span>
-                    </div>
-                  </div>
+                {/* Action Buttons */}
+                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button
+                    onClick={() => handlePageChange("checker")}
+                    data-cursor="verify"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-black/20 hover:bg-primary/90 transition-colors cursor-pointer"
+                  >
+                    <span>Check Availability</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </button>
 
+                  <a
+                    href="tel:+19293146523"
+                    data-cursor="call"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 px-8 py-[14px] text-base font-bold text-white hover:bg-white hover:text-[#0A2463] transition-colors"
+                  >
+                    <Phone className="h-5 w-5" />
+                    <span>Call +1-929-314-6523</span>
+                  </a>
                 </div>
+
+                <button
+                  onClick={() => handlePageChange("plans")}
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-100/80 underline-offset-4 hover:text-white hover:underline cursor-pointer"
+                >
+                  <span>or browse all plans</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+
+                {/* Trust points */}
+                <ul className="mt-12 pt-8 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm font-medium text-white/90">
+                  <li className="flex items-center justify-center gap-2">
+                    <CheckCircle className="h-5 w-5 shrink-0 text-yellow-400" />
+                    <span>Free, no-obligation advice</span>
+                  </li>
+                  <li className="flex items-center justify-center gap-2">
+                    <CheckCircle className="h-5 w-5 shrink-0 text-yellow-400" />
+                    <span>No-contract options</span>
+                  </li>
+                  <li className="flex items-center justify-center gap-2">
+                    <CheckCircle className="h-5 w-5 shrink-0 text-yellow-400" />
+                    <span>Installation in as little as 48 hours</span>
+                  </li>
+                </ul>
 
               </div>
             </section>
