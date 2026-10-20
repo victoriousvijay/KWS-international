@@ -56,14 +56,6 @@ export default function Navbar({ activePage, onChangePage }: NavbarProps) {
             Home
           </button>
           <button
-            onClick={() => onChangePage("plans")}
-            className={`text-sm font-medium transition-colors cursor-pointer ${
-              activePage === "plans" ? "text-primary font-bold" : "text-text-secondary hover:text-primary"
-            }`}
-          >
-            Plans
-          </button>
-          <button
             onClick={() => onChangePage("checker")}
             className={`text-sm font-medium transition-colors cursor-pointer ${
               activePage === "checker" ? "text-primary font-bold" : "text-text-secondary hover:text-primary"
@@ -157,12 +149,6 @@ export default function Navbar({ activePage, onChangePage }: NavbarProps) {
               className={`text-left text-base font-medium transition-colors cursor-pointer ${activePage === "home" ? "text-primary font-bold" : "text-text-secondary hover:text-primary"}`}
             >
               Home
-            </button>
-            <button
-              onClick={() => { onChangePage("plans"); setMobileMenuOpen(false); }}
-              className={`text-left text-base font-medium transition-colors cursor-pointer ${activePage === "plans" ? "text-primary font-bold" : "text-text-secondary hover:text-primary"}`}
-            >
-              Internet Plans
             </button>
             <button
               onClick={() => { onChangePage("checker"); setMobileMenuOpen(false); }}

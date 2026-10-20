@@ -44,24 +44,24 @@ export default function Footer({ onChangePage }: FooterProps) {
           </h4>
           <ul className="space-y-2.5 text-xs">
             <li>
-              <a href="#plans" className="hover:text-primary transition-colors">
-                Residential Plans
-              </a>
+              <button onClick={() => onChangePage?.("services")} className="hover:text-primary transition-colors cursor-pointer">
+                Our Services
+              </button>
             </li>
             <li>
-              <a href="#plans" className="hover:text-primary transition-colors">
-                Business Connections
-              </a>
+              <button onClick={() => onChangePage?.("checker")} className="hover:text-primary transition-colors cursor-pointer">
+                Check Availability
+              </button>
             </li>
             <li>
-              <a href="#checker" className="hover:text-primary transition-colors">
-                ZIP Availability Checker
-              </a>
-            </li>
-            <li>
-              <a href="#how-it-works" className="hover:text-primary transition-colors">
+              <button onClick={() => onChangePage?.("how-it-works")} className="hover:text-primary transition-colors cursor-pointer">
                 How It Works
-              </a>
+              </button>
+            </li>
+            <li>
+              <button onClick={() => onChangePage?.("faq")} className="hover:text-primary transition-colors cursor-pointer">
+                FAQ
+              </button>
             </li>
           </ul>
         </div>

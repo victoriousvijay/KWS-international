@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
-import InternetPlans from "./components/InternetPlans";
 import AvailabilityChecker from "./components/AvailabilityChecker";
 import HowItWorks from "./components/HowItWorks";
 import Footer from "./components/Footer";
@@ -12,7 +11,6 @@ import Interactive3DCursor from "./components/Interactive3DCursor";
 import FiberPlansHomepage from "./components/FiberPlansHomepage";
 import { PrivacyPolicy, TermsAndConditions } from "./components/LegalPages";
 import { PROVIDERS_LIST } from "./data";
-import { InternetPlan } from "./types";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import {
@@ -56,15 +54,6 @@ export default function App() {
     "faq-4": false,
     "faq-5": false
   });
-
-  // Handle plan selection from InternetPlans card
-  const handleSelectPlan = (plan: InternetPlan) => {
-    setSelectedPlanId(plan.id);
-    setSelectedPlanName(`${plan.provider} - ${plan.name}`);
-    
-    // Route directly to availability checker page
-    handlePageChange("checker");
-  };
 
   const toggleFaq = (id: string) => {
     setFaqOpenStates((prev) => ({
@@ -165,13 +154,6 @@ export default function App() {
                   </a>
                 </div>
 
-                <button
-                  onClick={() => handlePageChange("plans")}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-100/80 underline-offset-4 hover:text-white hover:underline cursor-pointer"
-                >
-                  <span>or browse all plans</span>
-                  <ArrowRight className="h-4 w-4" />
-                </button>
 
                 {/* Trust points */}
                 <ul className="mt-12 pt-8 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm font-medium text-white/90">
@@ -193,11 +175,7 @@ export default function App() {
             </section>
 
             {/* 3. FIBER-POWERED PLANS SPECUAL SECTION */}
-            <FiberPlansHomepage onSelectPlan={(planId, planName) => {
-              setSelectedPlanId(planId);
-              setSelectedPlanName(planName);
-              handlePageChange("checker");
-            }} />
+            <FiberPlansHomepage />
 
             {/* 4. WHY CHOOSE CORECONNECT */}
             <motion.section
@@ -260,49 +238,6 @@ export default function App() {
 
               </div>
             </motion.section>
-
-            {/* CTA SECTION */}
-            <section className="py-24 relative overflow-hidden bg-primary text-white">
-              <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
-                <h2 className="font-display text-4xl font-black tracking-tight sm:text-6xl text-white">
-                  Let's Get You Connected
-                </h2>
-                <p className="text-lg text-red-100 max-w-2xl mx-auto leading-relaxed">
-                  Tell us your ZIP code and a KWS International specialist will show you every plan available at your address, and help you pick the best one.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button
-                    onClick={() => handlePageChange("checker")}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 font-bold text-primary hover:bg-red-50 transition-all text-sm cursor-pointer shadow-lg"
-                  >
-                    <span>Check My Address</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                  <a
-                    href="tel:+19293146523"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span>Call Us +1-929-314-6523</span>
-                  </a>
-                </div>
-              </div>
-            </section>
-          </motion.div>
-        )}
-
-        {activePage === "plans" && (
-          <motion.div
-            key="plans"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* 3. INTERNET PLANS GRID */}
-            <div className="py-8">
-              <InternetPlans onSelectPlan={handleSelectPlan} />
-            </div>
 
             {/* CTA SECTION */}
             <section className="py-24 relative overflow-hidden bg-primary text-white">

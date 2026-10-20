@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Check, Info, ArrowRight, Zap, Flame, ShieldCheck } from "lucide-react";
+import { Check, Info, Phone, Zap, Flame, ShieldCheck } from "lucide-react";
 
 interface PlanFeature {
   text: string;
@@ -21,7 +21,7 @@ interface Plan {
   icon: React.ReactNode;
 }
 
-export default function FiberPlansHomepage({ onSelectPlan }: { onSelectPlan: (planId: string, planName: string) => void }) {
+export default function FiberPlansHomepage() {
   const plans: Plan[] = [
     {
       id: "advantage",
@@ -210,14 +210,14 @@ export default function FiberPlansHomepage({ onSelectPlan }: { onSelectPlan: (pl
 
                 {/* CTA Action button in footer of card */}
                 <div className="p-8 pt-0">
-                  <button
-                    onClick={() => onSelectPlan(plan.id, `KWS - ${plan.name} (${plan.speed})`)}
-                    data-cursor="quote"
-                    className={`w-full flex items-center justify-center gap-2 rounded-2xl ${plan.accentColor} py-4 px-6 font-bold text-white shadow-lg transition-all duration-300 hover:opacity-95 hover:scale-[1.02] active:scale-95 text-xs tracking-wider uppercase cursor-pointer`}
+                  <a
+                    href="tel:+19293146523"
+                    data-cursor="call"
+                    className={`w-full flex items-center justify-center gap-2 rounded-2xl ${plan.accentColor} py-4 px-6 font-bold text-white shadow-lg transition-all duration-300 hover:opacity-95 hover:scale-[1.02] active:scale-95 text-xs tracking-wider uppercase`}
                   >
-                    <span>Select Advisor Quote</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
+                    <Phone className="h-4 w-4" />
+                    <span>Call Us</span>
+                  </a>
                 </div>
               </motion.div>
             ))}
